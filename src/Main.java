@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +16,8 @@ public class Main {
             );
         }
 
-        
+        int young = (int) persons.stream()
+                .filter(person -> person.getAge() < 18)
+                .count();
     }
 }
