@@ -19,5 +19,11 @@ public class Main {
         int young = (int) persons.stream()
                 .filter(person -> person.getAge() < 18)
                 .count();
+
+        List<String> army = persons.stream()
+                .filter(person -> person.getAge() >= 18)
+                .filter(person -> person.getAge() <= 27)
+                .map(person -> person.getFamily())
+                .collect(Collectors.toList());
     }
 }
