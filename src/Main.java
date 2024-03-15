@@ -23,6 +23,7 @@ public class Main {
         List<String> army = persons.stream()
                 .filter(person -> person.getAge() >= 18)
                 .filter(person -> person.getAge() <= 27)
+                .filter(person -> person.getSex().equals("MAN"))
                 .map(person -> person.getFamily())
                 .collect(Collectors.toList());
     }
