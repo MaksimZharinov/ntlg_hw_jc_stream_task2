@@ -23,15 +23,15 @@ public class Main {
         List<String> army = persons.stream()
                 .filter(person -> person.getAge() >= 18)
                 .filter(person -> person.getAge() <= 27)
-                .filter(person -> person.getSex().equals("MAN"))
+                .filter(person -> person.getSex().toString().equals("MAN"))
                 .map(person -> person.getFamily())
                 .collect(Collectors.toList());
 
         List<String> job = persons.stream()
                 .filter(person -> person.getAge() >= 18)
-                .filter(person -> person.getEducation().equals("HIGHER"))
+                .filter(person -> person.getEducation().toString().equals("HIGHER"))
                 .filter(person -> {
-                    if (person.getSex().equals("MAN")) {
+                    if (person.getSex().toString().equals("MAN")) {
                         return person.getAge() <= 65;
                     } else {
                         return person.getAge() <= 60;
@@ -40,5 +40,9 @@ public class Main {
                 .sorted(Comparator.comparing(person -> person.getFamily()))
                 .map(person -> person.getFamily())
                 .collect(Collectors.toList());
+
+//        System.out.println(young);
+//        System.out.println(army);
+//        System.out.println(job);
     }
 }
