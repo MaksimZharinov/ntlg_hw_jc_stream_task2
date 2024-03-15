@@ -44,5 +44,7 @@ public class Main {
 //        System.out.println(young);
 //        System.out.println(army);
 //        System.out.println(job);
+
+        //task2 is done
     }
 }
