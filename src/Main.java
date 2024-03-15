@@ -26,5 +26,19 @@ public class Main {
                 .filter(person -> person.getSex().equals("MAN"))
                 .map(person -> person.getFamily())
                 .collect(Collectors.toList());
+
+        List<String> job = persons.stream()
+                .filter(person -> person.getAge() >= 18)
+                .filter(person -> person.getEducation().equals("HIGHER"))
+                .filter(person -> {
+                    if (person.getSex().equals("MAN")) {
+                        return person.getAge() <= 65;
+                    } else {
+                        return person.getAge() <= 60;
+                    }
+                })
+                .sorted(Comparator.comparing(person -> person.getFamily()))
+                .map(person -> person.getFamily())
+                .collect(Collectors.toList());
     }
 }
